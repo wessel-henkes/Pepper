@@ -1,0 +1,154 @@
+topic: ~basic_gesprek()
+language: dun
+
+# Defining extra concepts out of words or group of words
+
+#concept:(opening) ["Hallo leuk dat je komt kijken bij de studie HBO ICT. kan ik u ergens mee helpen?"]
+#concept:(inhoud) ["Bij de opleiding HBO ICT worden de studenten opgeleid tot ICT professionals. Dit houdt in dat de studenten niet voor één bepaald onderdeel worden opgeleid maar verschillende onderdelen leren. Zo leren software ontwikkelaars software maken maar ook software ontwerpen en testen."]
+#concept: (contacturen) ["Dit kan verschillen per blok maar gemiddeld zul je per week 6 lessen hebben van gemiddeld 3 uur. Dat komt dus neer op gemiddeld 9 uren per week dat je les krijgt. Natuurlijk zal je zelf thuis ook nog moeten studeren buiten deze uren om."]
+#concept: (lessen) ["Je krijgt elke week werkcolleges van de vakken. Dit houdt in dat je niet alleen uitleg krijgt tijdens deze lessen maar ook zelfstandig aan opdrachten werkt. Verder heb je aan het einde van elk blok een project waar je in werkgroepen werkt. Af en toe worden er ook hoorcolleges ingeroosterd waar mensen uit de bedrijfswereld iets komen vertellen over hoe ICT in de praktijk gebruikt wordt."]
+#concept: (samenwerken) ["Ja er wordt veel samengewerkt tijdens deze studie. Zoals ik al vertelde hebben we elk blok een project. Bij dit project wordt er gewerkt in teams van 4 tot 6 personen. Verder heb je ook vaak opdrachten die je moet inleveren voor de vakken zelf. ook hier kan het voorkomen dat je werkt in een groep. Deze groepen zijn meestal wel een stuk kleiner dan de projectgroepen en bestaan meestal uit 2 tot 4 personen."]
+#concept: (docentcontact) ["Je hebt altijd contact met de docenten tijdens de lessen die ingeroosterd staan. Maar je kunt natuurlijk altijd contact opnemen met een docent om te vragen of ze tijd hebben voor een extra contact uur in een week."]
+#concept: (studieuren) ["Dit kan natuurlijk verschillen per student. maar de HU gaat er van uit dat je voor 5 studiepunten 140 uur moet studeren. De meeste vakken zijn 5 studiepunten waard. hiervan heb je meestal 48 uur les in een blok dat betekent dat je per vak ongeveer 92 uur zelfstandig moet studeren per blok. Dit kan oplopen tot 276 uur per blok in totaal."]
+#concept: (eerstejaars) ["De HU neemt bijna iedereen aan. dit betekent dat je een grote groep eerstejaars hebt. Er kunnen tussen de 120 en misschien wel 300 eerstejaars studenten zijn."]
+#concept: (uitvallers) ["Ik weet niet hoeveel studenten er exact uitvallen per jaar maar dit kan toch wel oplopen tot 30%. Dit kan verschillende redenen hebben. vaak stoppen studenten ook omdat de studie toch niet echt bij hun past maar anderen stoppen inderdaad omdat ze het toch te zwaar vinden."]
+#concept: (studieadvies) ["Ja die is er. In het eerste jaar moet de student minimaal 50 punten halen. hierna krijg je een positief studieadvies waarna je door mag naar het tweede jaar. heb je deze punten niet dan moet je helaas stoppen met deze studie. Er is ook nog een tussentijds advies net na de kerstvakantie. Hier moet je 25 punten voor hebben om hier een positief advies voor te krijgen. dit advies is niet bindend maar geeft alleen een inzicht."]
+#concept: (toetsen) ["Elk vak heeft een tentamen dus gemiddeld heb je 3 tentamens per blok. Sommige vakken hebben twee tentamens maar de meeste vakken hebben ook nog een opdracht die je moet inleveren."]
+#"hallo allemaal, welkom bij deze leuke presentatie over mij"
+
+concept:(test) [hallo hoi hai hi hé]
+concept:(tziens) ["Tot ziens" doei "Tot de volgende keer" dag]
+concept:(hoi) [  "hallo, Leuk je te zien" "hey, wat leuk dat jullie er zijn."]
+concept:(hoofd) ["ik voel me net een kat" miauw miauw miauw "nu begint het vervelend te worden" "blijf eens van mijn hoofd" "heshtek mi toe" "Blijf nu alsjeblieft van mijn hoofd af"]
+concept:(ja) [JA natuurlijk ja "dat klopt"]
+concept: (naam) ["Ik ben Pep per, de H U Huisrobot" "Vroeger was mijn naam Hugo, maar nu heet ik weer gewoon Pep per" "Ik zit een beetje in een identiteitscrisis, maar volgens mij heet ik Pep per"]
+concept: (next) ["Laat me los"]
+concept:(dood)[" 10 \pau=1000\ 9 \pau=1000\ 8 \pau=1000\ 7 \pau=1000\ 6 \pau=1000\ 5 \pau=1000\ 4 \pau=1000\ 3  \pau=1000\ 2  \pau=1000\ 1  \pau=1000\ boem   \pau=500\ hahaha  \pau=500\ grapje"]
+
+u:(hallo)   ~hoi
+u:(hoi)     ~hoi
+u:(hai)     ~hoi
+u:(hi)      ~hoi
+u:(hey )     ~hoi
+u:(hallo, pepper)   ~hoi
+u:(hoi, pepper)     ~hoi
+u:(hai, pepper)     ~hoi
+u:(hi, pepper)      ~hoi
+u:(hey, pepper)     ~hoi
+concept:(hallo)[hallo hi hoi hai hey "hallo, pepper" "hoi, pepper" "hi,pepper" "hey pepper" pepper]
+u:(~hallo) ~groet
+
+
+
+
+u:(pepper) ja, wat is er?
+#u:(hoi, Pepper) hoi, mens!
+
+u:(ja) ~ja
+u:(tot ziens) ~tziens
+
+u:(Wat is jouw naam?) ~naam
+u:(hoe heet je?) ~naam
+u:(vertel is wat over jezelf) Ik ben Pep per, de H U Huisrobot. Vroeger was mijn naam Hugo, maar nu heet ik weer gewoon Pep per.
+u:(vertel wat over jezelf) Ik ben Pep per, de H U Huisrobot. Vroeger was mijn naam Hugo, maar nu heet ik weer gewoon Pep per.
+#u:(waarom) waarom wat?
+#u:(waarom niet?) waarom wel?
+
+u:(waar kom je vandaan?) Ik ben ontwikkeld in Japan, maar ben gebouwd in Parijs
+u:(pepper waar kom je vandaan?) Ik ben ontwikkeld in Japan, maar ben gebouwd in Parijs
+u:(hey pepper waar kom je vandaan?) Ik ben ontwikkeld in Japan, maar ben gebouwd in Parijs
+
+u:(hoe oud ben jij?) Ik ben nu ongeveer 2 jaar oud
+
+u:(Wat doe jij hier vandaag?) Ik ben hier om jou te vermaken. ^start(todss/behaviours/epic sax) ^wait(todss/behaviours/epic sax)
+
+u:(hoe gaat het met jou?) Met mij gaat het goed en met jou?
+u1:(het gaat goed) Wat fijn om te horen.
+u1:(met mij gaat het goed) Wat fijn om te horen.
+#u1:(het gaat niet zo goed) Oh, dan zal ik je proberen op te vrolijken.
+u1:(goed) Wat fijn om te horen.
+u1:(niet zo goed) Oh, dan zal ik je proberen op te vrolijken.  ^start(todss/behaviours/epic sax) ^wait(todss/behaviours/epic sax)
+u1:(niet goed) Oh, dan zal ik je proberen op te vrolijken.     ^start(todss/behaviours/epic sax) ^wait(todss/behaviours/epic sax)
+
+
+u:(Doei) Doei. Wat fijn dat jullie er waren. Tot de volgende keer.
+
+
+u:(["pepper wat kan je doen" "pepper wat kan je" "wat kan je doen" "wat kan je"]) ^start(todss/behaviours/Dabbing_pepper) kijk ik kan debben ^wait(todss/behaviours/Dabbing_pepper) wil je nog iets zien?
+u1:(ja) goed opletten. ^start(todss/behaviours/never)^wait(todss/behaviours/never)
+u1:(nee) gelukkig
+
+u:(kan je beatboxen) ja dat kan ik ^start(todss/behaviours/beatbox)^wait(todss/behaviours/beatbox)
+u:(beatboxen) ja dat kan ik ^start(todss/behaviours/beatbox)^wait(todss/behaviours/beatbox)
+
+#u:(pepper wat kan je) ^start(todss/behaviours/Dabbing_pepper) kijk ik kan dabben ^wait(todss/behaviours/Dabbing_pepper)
+#u:(wat kan je doen) ^start(todss/behaviours/Dabbing_pepper) kijk ik kan dabben ^wait(todss/behaviours/Dabbing_pepper)
+#u:(wat kan je) ^start(todss/behaviours/Dabbing_pepper) kijk ik kan dabben ^wait(todss/behaviours/Dabbing_pepper)
+u:(wat vind je van school) school? \pau=1000\ ^start(todss/behaviours/ha_gay) ^wait(todss/behaviours/ha_gay)
+
+u:(laat me met rust) ^start(todss/behaviours/move) Oke. sorry dat ik je gestoord heb. ^wait(todss/behaviours/move)
+u:(dieren) welk dier wil je dat ik na doe 
+u1:(olifant) kijk, ik ben een olifant \pau=1000\  ^start(todss/behaviours/dier/olifant) ^wait(todss/behaviours/dier/olifant)
+u1:(gorilla) kijk, ik ben een gorilla \pau=1000\  ^start(todss/behaviours/dier/gorilla) ^wait(todss/behaviours/dier/gorilla)
+u1:(aap) kijk, ik ben een aap\pau=1000\  ^start(todss/behaviours/dier/gorilla) ^wait(todss/behaviours/dier/gorilla)
+u1:(muis) kijk, ik ben een muis \pau=1000\     ^start(todss/behaviours/dier/muis) ^wait(todss/behaviours/dier/muis)
+u1:(koe) kijk, ik ben een koe \pau=1000\     ^start(todss/behaviours/dier/koe) ^wait(todss/behaviours/dier/koe)
+u1:(kat) kijk, ik ben een kat \pau=1000\     ^start(todss/behaviours/dier/kat) ^wait(todss/behaviours/dier/kat)
+u1:(hond) kijk, ik ben een hond \pau=1000\     ^start(todss/behaviours/dier/hond) ^wait(todss/behaviours/dier/hond)
+
+u:(magie) kijk, ik ben een boze tovenaar \pau=1000\     ^start(todss/behaviours/magic) ^wait(todss/behaviours/magic)
+
+u:(beatbox) kijk, ik kan beatboxen \pau=1000\  ^start(todss/behaviours/beatbox) ^wait(todss/behaviours/beatbox)
+
+u:(e:HandLeftBackTouched) Ik heb liever niet dat je mijn hand vasthoudt 
+
+u:(e:LeftBumperPressed) ^start(animations/Stand/Gestures/YouKnowWhat_1) AU! Je staat op mijn teen! ^wait(animations/Stand/Gestures/YouKnowWhat_1)
+u:(e:BackBumperPressed) ^start(animations/Stand/Gestures/YouKnowWhat_1) AU! Je staat op mijn teen! ^wait(animations/Stand/Gestures/YouKnowWhat_1)
+u:(e:RightBumperPressed) ^start(animations/Stand/Gestures/YouKnowWhat_1) AU! Je staat op mijn teen! ^wait(animations/Stand/Gestures/YouKnowWhat_1)
+
+u:(e:HandRightBackTouched) ^start(animations/Stand/Emotions/Positive/Excited_1) ~next
+
+u:(e:ALSignsAndFeedback/TabletTouchDetected) ^start(animations/Stand/Emotions/Positive/Excited_1) ~next
+
+u:(e:FrontTactilTouched) ^start(animations/Stand/Emotions/Positive/Excited_1) ~hoofd
+
+u:(kan je zingen) ^start(todss/behaviours/zingen/viva) ^wait(todss/behaviours/zingen/viva)
+u:(zing)^start(todss/behaviours/zingen/blue) ^wait(todss/behaviours/zingen/blue)
+
+
+
+# Catching inputs and triggering outputs
+#u:(e:onStart) $onStopped=1
+
+# Replying to speech
+#u:(~hello) ~hello
+
+u:(ik ben moe ) ~dood 
+u:(wat vind je van mij) ~dood
+u:(help me ) niet zo goed ~dood
+u:(help) ~dood 
+#ik ook. \pau=500\ laat ik dat oplossen  \pau=500\ ~dood
+
+u: (kan je dansen) ^start(todss/behaviours/never)^wait(todss/behaviours/never)
+#u:(loop) ^start(todss/behaviours/zingen/neverLoop)^wait(todss/behaviours/zingen/neverLoop)
+
+#u: (welkom pepper) ~opening
+#u: (Wat houdt de opleiding precies in?) ~inhoud
+#u: (Hoeveel college-uren of contacturen heb je per week?) ~contacturen
+#u: (Krijg je hoorcolleges, practica, werkgroepen of werkcolleges?) ~lessen
+#u: (Werk je veel samen?) ~samenwerken
+#u: (Hoe is het contact met de docenten?) ~docentcontact
+#u: (Hoeveel uur moet je gemiddeld per week studeren?) ~studieuren
+#u: (Hoeveel studenten zitten er in het eerste jaar?) ~eerstejaars
+#u: (Hoeveel studenten vallen uit? Stoppen ze omdat de studie te zwaar is of om andere redenen?) ~uitvallers
+#u: (Is er een bindend studieadvies en wat houdt dat in?) ~studieadvies
+#u: (Hoe wordt er getoetst? Zijn er veel tentamens of moet je juist veel opdrachten maken?) ~toetsen
+
+
+
+
+
+
+
+
+

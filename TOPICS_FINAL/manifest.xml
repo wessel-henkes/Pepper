@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="topics_final-bbc791" version="0.0.0">
+ <names>
+  <name lang="en_US">Untitled</name>
+  <name lang="nl_NL">topics_final</name>
+ </names>
+ <supportedLanguages>
+  <language>nl_NL</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>nl_NL</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="load_topics">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <dialogContent topicName="gesprek" typeVersion="1.0">
+   <topic language="nl_NL" path="gesprek/gesprek_dun.top"/>
+  </dialogContent>
+  <dialogContent topicName="begingesprek" typeVersion="1.0">
+   <topic language="nl_NL" path="begingesprek/begingesprek_dun.top"/>
+  </dialogContent>
+ </contents>
+</package>

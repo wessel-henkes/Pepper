@@ -1,0 +1,27 @@
+topic: ~begingesprek()
+language: dun
+
+# Defining extra concepts out of words or group of words
+#concept:(hello) [hello hi hey "good morning" greetings]
+
+# Catching inputs and triggering outputs
+#u:(e:onStart) $onStopped=1
+
+# Replying to speech
+#u:(~hello) ~hello
+
+
+concept:(hallo) [hallo hi hoi hey "hallo, pepper" "hoi, pepper" pepper] 
+u:(~hallo) ^gotoReactivate(start)
+
+proposal:%hallo hallo leuk je te zien!   ^nextProposal
+
+proposal:hoi ik ben pepper hoe heet jij?
+    u1:({"ik heet" "mijn naam is"} * ) hoi leuk om je te ontmoeten ^nextProposal
+
+proposal: hoe gaat het met jou?
+    u1:(["met mij gaat het goed" "het gaat goed" "goed"] !slecht !niet) Wat fijn om te horen.  ^nextProposal
+    u1:(["met mij gaat het niet goed" "het gaat niet goed" "niet zo goed" "niet goed" slecht ]) Oh, zal ik je proberen op te vrolijken.
+        u2:(ja {graag}) oke ~sax ^nextProposal
+        u2:(nee) oke ^nextProposal
+    

@@ -1,0 +1,40 @@
+topic: ~quiz_pepper()
+language: dun
+
+# Defining extra concepts out of words or group of words
+#concept:(hello) [hello hi hey "good morning" greetings]
+
+# Catching inputs and triggering outputs
+#u:(e:onStart) $onStopped=1
+
+# Replying to speech
+#u:(~hello) ~hello
+proposal: %intro dit is een quiz. \pau=200\ Ik ga je vragen stellen met 3 andwoorden: A, B Of C.\pau=200\ Andwoord met de juiste letter. \pau=200\ Zeg start als je wilt beginnen \pau=200\ of zeg stop als je wilt stoppen.
+    u1:([start begin]) \pau=200\ laten we beginnen! ^activate(quiz)^gotoReactivate(q11)
+    u1:(stop) oke ^topicTag(greetings,blijf)
+    
+proposal: %q11  \pau=200\ waneer ben ik, Pep per, voor het eerst gemaakt? \pau=1000\ a. in 2017 \pau=1000\ b. in 2010 \pau=1000\ c. in 2014
+     u1:([a 2017]) ik ben al iets ouder. Het goede andwoord is C. 2014. ^nextProposal
+    u1:([b 2010]) Zo oud ben ik niet! Het goede andwoord is C. 2014. ^nextProposal
+    u1:([c 2014]) Goed zo! ik ben geboren in 2014. ^nextProposal
+
+proposal:%quiz  \pau=1500\ Hoeveel talen spreek ik? \pau=1000\ a. 12 \pau=1000\ b. 21 \pau=1000\Of c. 34
+    u1:([a 12]) bijna! \pau=200\ het goede andwoord is B. ik spreek wel 21 talen ^nextProposal
+    u1:([b 21]) Perfect! \pau=200\ wist je dat ik zelfs arabisch kan spreken. ^nextProposal
+    u1:([c 34]) bijna! het goede andwoord is B. \pau=200\ ik spreek wel 21 talen ^nextProposal
+
+proposal:%quiz  \pau=1500\ Hoeveel keer ben ik wereld wijd aangeschaft?\pau=200\ a. 5 duizend keer \pau=200\ b. 15 duizend keer \pau=200\ c. 50 duizend keer
+    u1:([a 5000]) het zijn er veel meer dan 5 duizend!\pau=200\ Er zijn wel 15 duizend pepper robots wereld wijd. ^gotoReactivate(einde)
+    u1:([b 15000]) goed zo!\pau=100\ Dit zijn er even veel als inwoners in de gemeente zandvoord ^gotoReactivate(einde)
+    u1:([c 50000]) Als er zo veel van mij waren verkocht\pau=200\ hadden we al lang de wereld over genomen!\pau=200\ het goede andwoord was 15 duizend. ^gotoReactivate(einde)
+    
+proposal:%einde \pau=1500\ dit is het einde van de quiz.\pau=200\   ^activate(blijf)^topicTag(greetings,blijf)
+#vond je het leuk?
+ #   u1:(ja) mooi    
+  #  u1:(nee) oke. Jammer ^activate(blijf) ^topicTag(greetings,blijf)
+    
+#proposal:%volgende \pau=200\ wil je nog een vraag beandwoorden?
+#    u1:(ja) ^nextProposal
+#    u1:(nee)oke. ^topicTag(greetings,blijf)
+
+u:^private(["zeg dat nog is" "herhaal"])^sameProposal

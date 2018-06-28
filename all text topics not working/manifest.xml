@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.2" uuid="topics-dutch">
+ <names>
+  <name lang="en_US">topics</name>
+  <name lang="nl_NL">topics</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">dutch conversation</description>
+  <description lang="nl_NL">nederlands gesprek</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+  <language>nl_NL</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+  <language>nl_NL</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="startgesprek">
+   <nature>interactive</nature>
+   <triggerSentences/>
+   <loadingResponses/>
+   <autonomous/>
+   <permissions/>
+  </behaviorContent>
+  <dialogContent topicName="" typeVersion="1.0"/>
+  <dialogContent topicName="" typeVersion="1.0"/>
+  <dialogContent topicName="begingesprek" typeVersion="1.0">
+   <topic language="nl_NL" path="begingesprek/begingesprek_dun.top"/>
+  </dialogContent>
+  <dialogContent topicName="gesprek" typeVersion="1.0">
+   <topic language="nl_NL" path="gesprek/gesprek_dun.top"/>
+  </dialogContent>
+ </contents>
+ <requirements>
+  <naoqiRequirement minVersion="2.5" maxVersion="2.5"/>
+  <robotRequirement model="JULIETTE"/>
+ </requirements>
+</package>

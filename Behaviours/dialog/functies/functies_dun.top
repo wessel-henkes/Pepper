@@ -1,0 +1,32 @@
+topic: ~functies()
+language: dun
+
+# Defining extra concepts out of words or group of words
+#concept:(hello) [hello hi hey "good morning" greetings]
+
+concept: (next) ["Laat me los"]
+concept:(hoofd) ["ik voel me net een kat" miauw miauw miauw "nu begint het vervelend te worden" "blijf eens van mijn hoofd" "heshtek mi toe" "Blijf nu alsjeblieft van mijn hoofd af"]
+
+# Catching inputs and triggering outputs
+#u:(e:onStart) $onStopped=1
+
+# Replying to speech
+#u:(~hello) ~hello
+
+u:(wat kan je doen) ^start(todss/behaviours/Dabbing_pepper) 
+
+u:(laat me met rust) ^start(todss/behaviours/move) Oke
+
+
+
+u:(e:HandLeftBackTouched) Ik heb liever niet dat je mijn hand vasthoudt 
+
+u:(e:LeftBumperPressed) ^start(animations/Stand/Gestures/YouKnowWhat_1) AU! Je staat op mijn teen! ^wait(animations/Stand/Gestures/YouKnowWhat_1)
+u:(e:BackBumperPressed) ^start(animations/Stand/Gestures/YouKnowWhat_1) AU! Je staat op mijn teen! ^wait(animations/Stand/Gestures/YouKnowWhat_1)
+u:(e:RightBumperPressed) ^start(animations/Stand/Gestures/YouKnowWhat_1) AU! Je staat op mijn teen! ^wait(animations/Stand/Gestures/YouKnowWhat_1)
+
+u:(e:HandRightBackTouched) ^start(animations/Stand/Emotions/Positive/Excited_1) ~next
+
+u:(e:ALSignsAndFeedback/TabletTouchDetected) ^start(animations/Stand/Emotions/Positive/Excited_1) ~next
+
+u:(e:FrontTactilTouched) ^start(animations/Stand/Emotions/Positive/Excited_1) ~hoofd

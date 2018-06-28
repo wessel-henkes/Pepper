@@ -1,0 +1,148 @@
+topic: ~greetings() #^notInEmbeddedASR()
+language: dun
+
+#u:(test) test oke ^nextProposal
+#^topicTag(greetings,hallo)
+#u:(datum) de datum is ^currentDate
+
+#     u1:(["mijn naam is" "ik heet "] _*) hoi $1 $name=$1 spreek ik je naam zo goed uit?
+#        u2:(ja) mooi. ik zal je naam proberen te onthouden ^setUserInfo(name,$name)
+#        u2:(nee) ^sameProposal
+#concept:(hallo) [hallo hi hoi hey "hallo, pepper" "hoi, pepper" ] \pau=500\ 
+concept:(groet) ^rand["hallo, Leuk je te zien " "hey, wat leuk dat jullie er zijn."]
+concept:(tziens) ["Tot ziens" doei "Tot de volgende keer" dag]
+concept: (naam) ["Ik ben Pep per, de H U Huisrobot" "Vroeger was mijn naam Hugo, maar nu heet ik weer gewoon Pep per" "Ik zit een beetje in een identiteitscrisis, maar volgens mij heet ik Pep per"]
+concept:(teen) ^start(animations/Stand/Gestures/YouKnowWhat_1) AU! Je staat op mijn teen! ^wait(animations/Stand/Gestures/YouKnowWhat_1)
+concept: (beatbox)\pau=500\^start(todss/behaviours/beatbox)^wait(todss/behaviours/beatbox) 
+concept:(sax) \pau=500\^start(todss/behaviours/epic sax) ^wait(todss/behaviours/epic sax)
+concept:(dab)^start(todss/behaviours/Dabbing_pepper) kijk ik kan debben ^wait(todss/behaviours/Dabbing_pepper)
+concept:(zing) ^rand[" \pau=1000\^start(todss/behaviours/zingen/viva) ^wait(todss/behaviours/zingen/viva)" " \pau=1000\^start(todss/behaviours/zingen/allstar) ^wait(todss/behaviours/zingen/allstar)" " \pau=1000\ ^start(todss/behaviours/zingen/blue) ^wait(todss/behaviours/zingen/blue) " "\pau=1000\ ^start(todss/behaviours/zingen/never) ^wait(todss/behaviours/zingen/never)" "\pau=1000\ ^start(todss/behaviours/zingen/lazy) ^wait(todss/behaviours/zingen/lazy)"]
+
+concept:(dier) ^rand["kijk, ik ben een olifant \pau=1000\  ^start(todss/behaviours/dier/olifant) ^wait(todss/behaviours/dier/olifant)" "kijk, ik ben een gorilla \pau=1000\  ^start(todss/behaviours/dier/gorilla) ^wait(todss/behaviours/dier/gorilla)" "kijk, ik ben een muis \pau=1000\     ^start(todss/behaviours/dier/muis) ^wait(todss/behaviours/dier/muis)" "kijk, ik ben een koe \pau=1000\     ^start(todss/behaviours/dier/koe) ^wait(todss/behaviours/dier/koe)" "kijk, ik ben een kat \pau=1000\     ^start(todss/behaviours/dier/kat) ^wait(todss/behaviours/dier/kat)" "kijk, ik ben een hond \pau=1000\^start(todss/behaviours/dier/hond) ^wait(todss/behaviours/dier/hond)"]
+
+concept:(magie) kijk, ik ben een boze tovenaar \pau=1000\     ^start(todss/behaviours/magic) ^wait(todss/behaviours/magic)
+concept:(hoofd) ["ik voel me net een kat" miauw miauw miauw "nu begint het vervelend te worden" "blijf eens van mijn hoofd" "heshtek mi toe" "Blijf nu alsjeblieft van mijn hoofd af"]
+concept: (next) ["Laat me los" "nu begint het vervelend te worden" "blijf eens van mij af" "heshtek mi toe" "Blijf nu alsjeblieft van mijn af"]
+
+concept:(moves) ^rand["ik kan dieren na doen ~dier" "ik kan saxefoon spelen ~sax" "ik kan zingen \pau=500\ luister maar ~zing" "ik kan toneel spelen ~magie"]
+concept:(r2d2) ^start(todss/behaviours/r2d2) ^wait(todss/behaviours/r2d2) 
+      
+      
+      
+      
+      
+concept:(hallo) [hallo hi hoi hey "hallo, pepper" "hoi, pepper" pepper] 
+u:(~hallo) ^gotoReactivate(start)
+
+proposal:%start %hallo hallo leuk je te zien!   ^gotoReactivate(naam) #^nextProposal
+#^gotoReactivate(naam)
+proposal:%naam \pau=500\ Ik heet pep per   \pau=500\ hoe heet jij
+    u1:({"mijn naam is" "ik heet "} *) Hoi. Leuk om je te ontmoeten  ^gotoReactivate(hoegaathet)   
+    u1:(e:Dialog/NotUnderstood) Hoi. Leuk om je te ontmoeten  ^gotoReactivate(hoegaathet)  
+    
+proposal: %hoegaathet \pau=500\ hoe gaat het met jou?
+    u1:(["met mij gaat het goed" "het gaat goed" "goed"] !slecht !niet) Wat fijn om te horen.  ^nextProposal
+    u1:(["met mij gaat het niet goed" "het gaat niet goed" "niet zo goed" "niet goed" slecht ]) Oh, zal ik je proberen op te vrolijken.
+        u2:(ja {graag}) oke ~sax ^nextProposal
+        u2:(nee) oke ^nextProposal
+    
+proposal:  \pau=1000\ Zal ik wat over mij zelf gaan vertellen?
+    u1:(ja) oke.    ^topicTag(gesprek,pepper)
+    u1:(nee) oke ^nextProposal
+    
+proposal: \pau=500\  wil je een quiz over mij doen?
+    u1:(ja)    ^topicTag(quiz_pepper,intro)
+    u1:(nee) oke ^nextProposal
+    
+proposal: \pau=1000\ wist je dat de hoge school utrecht heel leuk is.\pau=500\ de studenten hebben mij erg leuke dingen geleerd.  ^gotoReactivate(watkanje)
+
+proposal:%watkanje  \pau=500\ ik kan namelijk beatboxen, zingen, dansen en nog veel meer. \pau=500\wat wil je dat ik doe?
+    u1:([niks stop]) oke ^nextProposal
+    u1:([dans "ga dansen"]) ja dat kan ik.\pau=500\ maar dan ga ik er wel bij zingen \pau=500\  kijk maar ~zing  \pau=500\ vond je het mooi
+       u2:(ja) dankjewel, \pau=500\ zal ik nog een liedje voor je zingen?
+            u3:(ja) oke. \pau=500\ hier gaan we dan ~zing \pau=500\ dat was wel genoeg voor nu. \pau=500\ ik ga nu even uitrusten^gotoReactivate(blijf)
+            u3:(nee) oke.^gotoReactivate(blijf)
+        u2:(nee) zal ik dan een ander liedje voor jou zingen. \pau=500\ mischien vind je die leuker?
+            u3:(ja) oke.\pau=500\ hier gaan we dan ~zing^gotoReactivate(blijf)
+            u3:(nee) oke.^gotoReactivate(blijf)
+    u1:(["kan je beatboxen" beatboxen beatbox beetbox]) m sie pep per in da haus \pau=50\ ~beatbox \pau=500\ vond jij het mooi?
+        u2:(ja) dankjewel, \pau=500\ ik kan ook saxefoon spelen wil je dat zien?
+            u3:(ja) oke. \pau=500\ hier gaan we dan ~sax \pau=500\ dat was wel genoeg voor nu. \pau=500\zeg het maar als je weer iets wilt zien^gotoReactivate(blijf)
+            u3:(nee) oke.^gotoReactivate(blijf)
+        u2:(nee) ik kan ook saxefoon spelen wil je dat zien? \pau=500\ mischien vind je die leuker?
+            u3:([ja oke]) oke.\pau=500\ hier gaan we dan ~sax^gotoReactivate(blijf)
+            u3:(nee) oke.^gotoReactivate(blijf)
+    u1:(["kan je zingen" zing]) daar gaan we dan  ~zing \pau=500\ vond jij het mooi?
+        u2:(ja) dankjewel, \pau=500\ zal ik nog een liedje voor je zingen?
+            u3:(ja) oke. \pau=500\ hier gaan we dan ~zing \pau=500\ dat was wel genoeg voor nu. \pau=500\^gotoReactivate(blijf)
+            u3:(nee) oke.^gotoReactivate(blijf)
+        u2:(nee) zal ik dan een ander liedje voor jou zingen. \pau=500\ mischien vind je die leuker?
+            u3:(ja) oke.\pau=500\ hier gaan we dan ~zing ^gotoReactivate(blijf)
+            u3:(nee) oke. ^gotoReactivate(blijf)
+        
+
+proposal:  \pau=500\ ken je toevallig ar toe die toe \pau=500\ Ik kan hem heel goed na doen   \pau=250\  wil je dat zien 
+    u1:(ja) ~r2d2 ^activate(h1) ^gotoReactivate(blijf)
+    u1:(nee) oke ^nextProposal
+    
+
+    
+proposal: \pau=500\ wil je een quiz over de Hogeschool utrecht doen?
+    u1:(ja)    ^topicTag(quiz_hu,intro)
+    u1:(nee) oke ^nextProposal
+    
+proposal:  \pau=500\ ik kan verschillende dieren na doen.\pau=500\ wil je dat zien? ^activate(h1)
+    u1:(ja)  oke  ^topicTag(dieren,dier) 
+    u1:(nee) oke  ^gotoReactivate(blijf)
+    
+proposal:%blijf  \pau=1500\ Wil je met me blijven praten?
+    u1:(ja) Oke.  ^activate(blijf)
+    u1:(nee)  ^topicTag(gesprek,stop)^activate(blijf)^activate(naam)
+
+u:^private(["zeg dat nog is" "herhaal"])^sameProposal
+
+#proposal: wil je het hebben over eten? 
+#u1:(ja)^topicTag(eten,eten)
+#u1:(nee) oke 
+
+
+
+    
+#u:^private(["vergeet mij" "vergeet mijn naam"]) oke ^removeUserInfo(name)
+#u:^private(["hoe heet ik ""weet je hoe ik heet" "weet je mijn naam"]) ^first["jou naam is  ^getUserInfo(name)" "ik weet jou naam niet "]
+#u:(dit is een test) test oke #^topicTag(gesprek,magic)
+
+
+
+
+
+
+
+
+
+
+
+##^first[" ^hasUserInfo(name) ^getUserInfo(name), leuk om je weer te zien! "
+
+#proposal:%hallo hallo  [" hoe heet je "]
+#    u1:({["mijn naam is" "ik heet "]} _*) hoi $name=$1 spreek ik je naam zo goed uit?
+#        u2:(ja) mooi. ik zal je naam proberen te onthouden ^setUserInfo(name,$name)
+#        u2:(nee) ^sameProposal        
+
+##u:(e:onStart)
+
+#u:(["vergeet mij" "vergeet mijn naam"]) oke ^removeUserInfo(dataName)
+#u:(hoe heet ik) ^first["jou naam is  ^getUserInfo(name)" "ik weet jou naam niet "]
+
+
+
+##u:(Hallo) Hoi ^first["^getUserInfo(name), hoe gaat het?" "wat is jou naam"]
+
+
+##u:(ik heet _*) nice to meet you $1
+##u:(I like _[chocolate cheese]) do you want to eat $1 now?
+
+
+
+
+#bij nee mischien next topic

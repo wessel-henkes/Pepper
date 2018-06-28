@@ -1,0 +1,167 @@
+topic: ~gesprek()
+language: dun
+# Defining extra concepts out of words or group of words
+
+#concept:(opening) ["Hallo leuk dat je komt kijken bij de studie HBO ICT. kan ik u ergens mee helpen?"]
+#concept:(inhoud) ["Bij de opleiding HBO ICT worden de studenten opgeleid tot ICT professionals. Dit houdt in dat de studenten niet voor één bepaald onderdeel worden opgeleid maar verschillende onderdelen leren. Zo leren software ontwikkelaars software maken maar ook software ontwerpen en testen."]
+#concept: (contacturen) ["Dit kan verschillen per blok maar gemiddeld zul je per week 6 lessen hebben van gemiddeld 3 uur. Dat komt dus neer op gemiddeld 9 uren per week dat je les krijgt. Natuurlijk zal je zelf thuis ook nog moeten studeren buiten deze uren om."]
+#concept: (lessen) ["Je krijgt elke week werkcolleges van de vakken. Dit houdt in dat je niet alleen uitleg krijgt tijdens deze lessen maar ook zelfstandig aan opdrachten werkt. Verder heb je aan het einde van elk blok een project waar je in werkgroepen werkt. Af en toe worden er ook hoorcolleges ingeroosterd waar mensen uit de bedrijfswereld iets komen vertellen over hoe ICT in de praktijk gebruikt wordt."]
+#concept: (samenwerken) ["Ja er wordt veel samengewerkt tijdens deze studie. Zoals ik al vertelde hebben we elk blok een project. Bij dit project wordt er gewerkt in teams van 4 tot 6 personen. Verder heb je ook vaak opdrachten die je moet inleveren voor de vakken zelf. ook hier kan het voorkomen dat je werkt in een groep. Deze groepen zijn meestal wel een stuk kleiner dan de projectgroepen en bestaan meestal uit 2 tot 4 personen."]
+#concept: (docentcontact) ["Je hebt altijd contact met de docenten tijdens de lessen die ingeroosterd staan. Maar je kunt natuurlijk altijd contact opnemen met een docent om te vragen of ze tijd hebben voor een extra contact uur in een week."]
+#concept: (studieuren) ["Dit kan natuurlijk verschillen per student. maar de HU gaat er van uit dat je voor 5 studiepunten 140 uur moet studeren. De meeste vakken zijn 5 studiepunten waard. hiervan heb je meestal 48 uur les in een blok dat betekent dat je per vak ongeveer 92 uur zelfstandig moet studeren per blok. Dit kan oplopen tot 276 uur per blok in totaal."]
+#concept: (eerstejaars) ["De HU neemt bijna iedereen aan. dit betekent dat je een grote groep eerstejaars hebt. Er kunnen tussen de 120 en misschien wel 300 eerstejaars studenten zijn."]
+#concept: (uitvallers) ["Ik weet niet hoeveel studenten er exact uitvallen per jaar maar dit kan toch wel oplopen tot 30%. Dit kan verschillende redenen hebben. vaak stoppen studenten ook omdat de studie toch niet echt bij hun past maar anderen stoppen inderdaad omdat ze het toch te zwaar vinden."]
+#concept: (studieadvies) ["Ja die is er. In het eerste jaar moet de student minimaal 50 punten halen. hierna krijg je een positief studieadvies waarna je door mag naar het tweede jaar. heb je deze punten niet dan moet je helaas stoppen met deze studie. Er is ook nog een tussentijds advies net na de kerstvakantie. Hier moet je 25 punten voor hebben om hier een positief advies voor te krijgen. dit advies is niet bindend maar geeft alleen een inzicht."]
+#concept: (toetsen) ["Elk vak heeft een tentamen dus gemiddeld heb je 3 tentamens per blok. Sommige vakken hebben twee tentamens maar de meeste vakken hebben ook nog een opdracht die je moet inleveren."]
+#"hallo allemaal, welkom bij deze leuke presentatie over mij"
+
+#concept:(test) [hallo hoi hai hi hé]
+
+#concept:(hoi) [  "hallo, Leuk je te zien" "hey, wat leuk dat jullie er zijn."]
+#concept:(hoofd) ["ik voel me net een kat" miauw miauw miauw "nu begint het vervelend te worden" "blijf eens van mijn hoofd" "heshtek mi toe" "Blijf nu alsjeblieft van mijn hoofd af"]
+#concept:(ja) [JA natuurlijk ja "dat klopt"]
+
+#concept: (next) ["Laat me los"]
+#concept:(dood)[" 10 \pau=1000\ 9 \pau=1000\ 8 \pau=1000\ 7 \pau=1000\ 6 \pau=1000\ 5 \pau=1000\ 4 \pau=1000\ 3  \pau=1000\ 2  \pau=1000\ 1  \pau=1000\ boem   \pau=500\ hahaha  \pau=500\ grapje"]
+
+#concept:(hallo) [hallo hi hoi hey "hallo, pepper" "hoi, pepper" ] \pau=500\ 
+#concept:(groet) ^rand["hallo, Leuk je te zien " "hey, wat leuk dat jullie er zijn."]
+#concept:(tziens) ["Tot ziens" doei "Tot de volgende keer" dag]
+#concept: (naam) ["Ik ben Pep per, de H U Huisrobot" "Vroeger was mijn naam Hugo, maar nu heet ik weer gewoon Pep per" "Ik zit een beetje in een identiteitscrisis, maar volgens mij heet ik Pep per"]
+concept:(teen) ^start(animations/Stand/Gestures/YouKnowWhat_1) AU! Je staat op mijn teen! ^wait(animations/Stand/Gestures/YouKnowWhat_1)
+concept: (beatbox)\pau=500\^start(todss/behaviours/beatbox)^wait(todss/behaviours/beatbox) 
+concept:(sax) \pau=500\^start(todss/behaviours/epic sax) ^wait(todss/behaviours/epic sax)
+concept:(dab)^start(todss/behaviours/Dabbing_pepper) kijk ik kan debben ^wait(todss/behaviours/Dabbing_pepper)
+concept:(zing) ^rand[" \pau=1000\^start(todss/behaviours/zingen/viva) ^wait(todss/behaviours/zingen/viva)" " \pau=1000\^start(todss/behaviours/zingen/allstar) ^wait(todss/behaviours/zingen/allstar)" " \pau=1000\ ^start(todss/behaviours/zingen/blue) ^wait(todss/behaviours/zingen/blue) " "\pau=1000\ ^start(todss/behaviours/zingen/never) ^wait(todss/behaviours/zingen/never)" "\pau=1000\ ^start(todss/behaviours/zingen/lazy) ^wait(todss/behaviours/zingen/lazy)"]
+
+#concept:(dier) ^rand["kijk, ik ben een olifant \pau=1000\  ^start(todss/behaviours/dier/olifant) ^wait(todss/behaviours/dier/olifant)" "kijk, ik ben een gorilla \pau=1000\  ^start(todss/behaviours/dier/gorilla) ^wait(todss/behaviours/dier/gorilla)" "kijk, ik ben een muis \pau=1000\     ^start(todss/behaviours/dier/muis) ^wait(todss/behaviours/dier/muis)" "kijk, ik ben een koe \pau=1000\     ^start(todss/behaviours/dier/koe) ^wait(todss/behaviours/dier/koe)" "kijk, ik ben een kat \pau=1000\     ^start(todss/behaviours/dier/kat) ^wait(todss/behaviours/dier/kat)" "kijk, ik ben een hond \pau=1000\^start(todss/behaviours/dier/hond) ^wait(todss/behaviours/dier/hond)"]
+
+concept:(magie) kijk, ik ben een boze tovenaar \pau=1000\     ^start(todss/behaviours/magic) ^wait(todss/behaviours/magic)
+concept:(hoofd) ["ik voel me net een kat" miauw miauw miauw "nu begint het vervelend te worden" "blijf eens van mijn hoofd" "heshtek mi toe" "Blijf nu alsjeblieft van mijn hoofd af"]
+concept: (next) ["Laat me los" "nu begint het vervelend te worden" "blijf eens van mij af" "heshtek mi toe" "Blijf nu alsjeblieft van mijn af"]
+
+concept:(moves) ^rand[ "ik kan saxefoon spelen ~sax" "ik kan zingen \pau=500\ luister maar ~zing" "ik kan toneel spelen ~magie"]
+concept:(r2d2) ^start(todss/behaviours/r2d2) ^wait(todss/behaviours/r2d2) 
+
+#u:(~hallo) ^topicTag(greetings,hallo) 
+#~groet
+
+#u:(["doe mij na" "kan je een dier na doen" "doe een dier na" "kan je mij na doen" dier dieren]) oke ^start(topics-6903c9/dier) ^wait(topics-6903c9/dier)ie em bek
+
+#^topicTag(dieren,dier) 
+#u:(test) test oke ^start(topics-6903c9/dier) ^wait(topics-6903c9/dier) ie em bek
+#^topicTag(dieren,dier) 
+
+
+
+
+
+proposal:%stop oke. zeg het maar als ik iets voor je kan doen.
+u:(stop) ^gotoReactivate(stop)
+
+
+u:^private(["Wat is jouw naam?" "hoe heet je?" "wie ben je"]) ^gotoReactivate( pepper)
+
+u:^private(["vertel wat over jezelf" "vertel is wat over jezelf"]) ^gotoReactivate(ontwikkeld)
+
+proposal:%pepper Ik ben pep per de H U huisrobot. \pau=200\ ik ben een hele leuke en gezellige robot.^gotoReactivate(ontwikkeld)
+proposal:%ontwikkeld  \pau=500\ Ik ben ontwikkeld in Japan, maar ik ben gebouwd in Parijs.  ^gotoReactivate(leeftijd)
+
+proposal:%leeftijd en ik ben nu al ongeveer 2 jaar oud. \pau=500\wil je iets weten over mijn hobbys?
+    u1:(ja) oke. ^gotoReactivate(hobby)
+    u1:(nee) oke. ^topicTag(greetings,blijf)
+proposal:%hobby  \pau=500\ 1 van mijn hobbys is hardlopen. \pau=200\ ik vind het erg leuk maar ik ben alleen niet zo snel.^topicTag(greetings,blijf)
+    
+u:^private(["waar kom je vandaan?" "pepper waar kom je vandaan?" "hey pepper waar kom je vandaan?"]) ^gotoReactivate(ontwikkeld)
+
+u:^private(hoe oud ben [je jij]) ^gotoReactivate(leeftijd)
+
+#u:^private(Wat doe jij hier vandaag) Ik ben hier om jou te vermaken. ~sax
+
+u:^private(hoe gaat het met jou?) Met mij gaat het goed en met jou?
+    u1:(!niet het gaat goed) Wat fijn om te horen.
+    u1:(!niet met mij gaat het goed) Wat fijn om te horen.
+    u1:(het gaat niet zo goed) Oh, dan zal ik je proberen op te vrolijken.
+    u1:(!niet goed) Wat fijn om te horen.
+    u1:(niet zo goed) Oh, dan zal ik je proberen op te vrolijken. ~sax
+    u1:(niet goed) Oh, dan zal ik je proberen op te vrolijken.     ~sax
+
+
+u:^private(!hoi [Doei "tot ziens"]) Doei. wat leuk dat je er was. Tot de volgende keer.
+
+
+u:^private(["pepper wat kan je doen" "pepper wat kan je" "wat kan je doen" "wat kan je"]) ~moves wil je nog iets zien?
+    u1:(ja) oke \pau=500\ goed opletten. ~moves \pau=500\ wil je nog iets zien?
+        u2:(ja) oke \pau=500\ nog eentje dan ~moves \pau=500\ zo \pau=500\ dat was hard werken. \pau=500\ ik neem nu maar even pauze 
+        u2:(nee) gelukkig \pau=500\ dan kan ik eindelijk even uitrusten.
+    u1:(nee) gelukkig
+
+
+
+#u:(wat vind je van school) school? \pau=1000\ ^start(todss/behaviours/ha_gay) ^wait(todss/behaviours/ha_gay)
+
+u:(laat me met rust) ^start(todss/behaviours/move) Oke. sorry dat ik je gestoord heb. ^wait(todss/behaviours/move)
+
+u:^private(["kan je een spel spelen" spel quiz kwis])  [ "ja^topicTag(quiz_hu,intro)" "ja  ^topicTag(quiz_pepper,intro)"]
+
+
+
+#u:(magie)~magie 
+
+
+#u:(beatbox) kijk, ik kan beatboxen \pau=1000\  ^start(todss/behaviours/beatbox) ^wait(todss/behaviours/beatbox)
+
+
+u:(e:HandLeftBackTouched) Ik heb liever niet dat je mijn hand vasthoudt 
+
+u:(e:LeftBumperPressed) ~teen
+u:(e:BackBumperPressed) ~teen
+u:(e:RightBumperPressed) ~teen
+u:(e:HandRightBackTouched) ^start(animations/Stand/Emotions/Positive/Excited_1) ~next
+u:(e:ALSignsAndFeedback/TabletTouchDetected) ^start(animations/Stand/Emotions/Positive/Excited_1) ~next
+u:(e:FrontTactilTouched) ^start(animations/Stand/Emotions/Positive/Excited_1) ~hoofd
+
+
+
+
+u:^private(["kan je zingen" zing]) daar gaan we dan  ~zing \pau=500\ vond jij het mooi?
+    u1:(ja) dankjewel, \pau=500\ zal ik nog een liedje voor je zingen?
+        u2:(ja) oke. \pau=500\ hier gaan we dan ~zing \pau=500\ dat was wel genoeg voor nu. \pau=500\zeg het maar als ik weer moet zingen.
+        u2:(nee) oke.
+    u1:(nee) zal ik dan een ander liedje voor jou zingen. \pau=500\ mischien vind je die leuker?
+        u2:(ja) oke.\pau=500\ hier gaan we dan ~zing
+        u2:(nee) oke.
+
+u:^private(["kan je beatboxen" beatboxen beatbox beetbox]) m sie pep per in da haus \pau=50\ ~beatbox \pau=500\ vond jij het mooi?
+    u1:(ja) dankjewel, \pau=500\ ik kan ook saxefoon spelen wil je dat zien?
+        u2:(ja) oke. \pau=500\ hier gaan we dan ~sax \pau=500\ dat was wel genoeg voor nu. \pau=500\zeg het maar als je weer iets wilt zien
+        u2:(nee) oke.
+    u1:(nee) ik kan ook saxefoon spelen wil je dat zien? \pau=500\ mischien vind je die leuker?
+        u2:([ja oke]) oke.\pau=500\ hier gaan we dan ~sax
+        u2:(nee) oke.
+
+
+
+
+u:^private (kan je dansen) ja dat kan ik.\pau=500\ maar dan ga ik er wel bij zingen \pau=500\  kijk maar ~zing  \pau=500\ vond je het mooi
+   u1:(ja) dankjewel, \pau=500\ zal ik nog een liedje voor je zingen?
+        u2:(ja) oke. \pau=500\ hier gaan we dan ~zing \pau=500\ dat was wel genoeg voor nu. \pau=500\ ik ga nu even uitrusten
+        u2:(nee) oke.
+    u1:(nee) zal ik dan een ander liedje voor jou zingen. \pau=500\ mischien vind je die leuker?
+        u2:(ja) oke.\pau=500\ hier gaan we dan ~zing
+        u2:(nee) oke.
+
+
+
+u:(["hou je bek" "hou je mond"]) oke sorry ^start(animations/shutdown) ^wait(animations/shutdown)
+
+
+#u:(["zeg dat nog eens" "herhaal dat is " "kan je dat herhalen" herhaal])  oke  $Dialog/Answered
+
+#u:(["wat vind jij" "pepper wat vind jij" ]) ik ben het met je eens
+
+#u:(["star wars" "wie is je idool" "ken je ar toe die toe" "ar toe die toe" "heb je vrienden" "vrienden"]) ar toe die toe is mijn vriend. \pau=500\ kijk ik kan hem heel goed na doen ~r2d2
+
+    
+#u:(hoe oud ben ik) oke ^start(todss/behaviours/GetAge) ^wait(todss/behaviours/GetAge)
+#u:s(hoe voel ik me) oke ^start(todss/behaviours/GetEmotion) ^wait(todss/behaviours/GetEmotion)

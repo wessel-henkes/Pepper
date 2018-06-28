@@ -1,0 +1,34 @@
+topic: ~quiz_hu()
+language: dun
+
+
+proposal: %intro dit is een quiz over de Hogeschool Utrecht. \pau=200\Ik ga je vragen stellen met 3 andwoorden: a, b of c.\pau=200\ Andwoord met de juiste letter.\pau=200\ Zeg start als je wilt beginnen of stop als je wilt \pau=200\stoppen.
+    u1:([start begin]) laten we beginnen!  \pau=300\ O Wacht. \pau=200\ Als je de vraag niet goed heb verstaan. Zeg dan \pau=100\opnieuw \pau=100\ of \pau=100\ herhaal. \pau=300\ Dan ik herhaal ik de vraag. \pau=500\ Lets Go \pau=500\^activate(quizhu)^gotoReactivate(q1)
+    u1:(stop) oke\pau=200\ ^topicTag(greetings,blijf)
+
+proposal:%q1 %quizhu \pau=2000\  Hoeveel studenten heeft de Hogeschool Utrecht?\pau=1000\ a. 15 duizend \pau=1000\ b. 55 duizend \pau=1000\ c. 35 duizend
+    u1:([a 15000]) Nee dit was zo een paar jaar geleden.\pau=500\ Nu zijn het er 35 duzend ^nextProposal
+    u1:([b 55000]) Nee dit is misschien zo in de toekomst maar nu nog niet.\pau=500\ het zijn er nu ongeveer 35 duizend. ^nextProposal
+    u1:([c 35000]) Goed zo. \pau=200\ Er zijn inderdaad 35 duizend studenten aanwezig op dit moment  ^nextProposal
+    
+proposal:%quizhu \pau=2000\  Wanneer is de hogeschool utrecht opgericht? \pau=1000\ a. 1994 \pau=1000\ b. 2005 \pau=1000\ c. 1970
+    u1:([a 1994]) Goed zo. \pau=200\ De Hogeschool Utrecht bestaat al sinds 1994. ^nextProposal
+    u1:([b 2005]) Helaas. \pau=200\ De hogeschool utrecht is al wat ouder. \pau=500\ De H U bestaat al sinds 1994. ^nextProposal
+    u1:([c 1970]) Helaas.\pau=200\  Zo lang bestaan wij nog niet. \pau=500\ Het goede andwoord was A.\pau=500\ de H U  bestaat al sinds 1994.^nextProposal
+
+proposal:%quizhu?\pau=2000\ Hoeveel opleidingen hebben wij?\pau=1000\ a. 98 \pau=1000\ b. 55 \pau=1000\ c. 135
+    u1:([a 98]) bijna. \pau=200\ Het zijn er nog meer. Namelijk 135 ^gotoReactivate(einde)
+    u1:([b 55]) helaas. \pau=200\ Het zijn er veel. meer namelijk 135 ^gotoReactivate(einde)
+    u1:([c 135]) Goed zo. \pau=200\ Er worden nu 135 opleidingen aangeboden. ^gotoReactivate(einde)
+
+
+proposal:%einde\pau=2000\ dit is het einde van de quiz. \pau=200\ ^activate(blijf)^topicTag(greetings,blijf)
+#vond je het leuk.
+ #   u1:(ja) mooi ^topicTag(greetings,blijf)
+  #  u1:(nee) oke. Jammer ^topicTag(greetings,blijf)
+    
+#proposal:%volgende wil je nog een vraag beandwoorden?
+#    u1:(ja) ^nextProposal
+#    u1:([nee stop])oke. ^topicTag(greetings,blijf)
+
+u:^private(["zeg dat nog is" "herhaal""herhaal dat is""zeg dat nog eens" opnieuw])^sameProposal

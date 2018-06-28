@@ -1,0 +1,45 @@
+topic: ~dieren() #^notInEmbeddedASR ()
+language: dun
+
+# Defining extra concepts out of words or group of words
+#concept:(hello) [hello hi hey "good morning" greetings]
+
+# Catching inputs and triggering outputs
+#u:(e:onStart) $onStopped=1
+
+# Replying to speech
+#u:(~hello) ~hello
+#u:(["doe mij na" "kan je een dier na doen" "doe een dier na"])~dier
+
+
+
+
+u:(["doe mij na" "kan je een dier na doen" "doe een dier na" "kan je mij na doen" dier dieren]) oke ^gotoReactivate(dier)
+#^start(topics-6903c9/dier) ^wait(topics-6903c9/dier)ie em bek
+#u:(e:onStart) start^gotoReactivate(dier)
+proposal:%dier \pau=500\ ik kan verschillende dieren na doen. \pau=500\ ^gotoReactivate(kiesdier)
+proposal:%kiesdier welk dier wil je dat ik na doe ?
+    u1:(olifant) kijk, ik ben een olifant \pau=1000\  ^start(todss/behaviours/dier/olifant) ^wait(todss/behaviours/dier/olifant)wil je er nog 1 zien?
+        u2:(ja) ^sameProposal
+        u2:(nee) oke.^activate(blijf)^topicTag(greetings,blijf)
+    u1:(gorilla) kijk, ik ben een gorilla \pau=1000\  ^start(todss/behaviours/dier/gorilla) ^wait(todss/behaviours/dier/gorilla)wil je er nog 1 zien?
+        u2:(ja) ^sameProposal
+        u2:(nee) oke.^activate(blijf)^topicTag(greetings,blijf)
+    u1:(aap) kijk, ik ben een aap\pau=1000\  ^start(todss/behaviours/dier/gorilla) ^wait(todss/behaviours/dier/gorilla)wil je er nog 1 zien?
+        u2:(ja) ^sameProposal
+        u2:(nee) oke.^activate(blijf)^topicTag(greetings,blijf)
+    u1:(muis) kijk, ik ben een muis \pau=1000\     ^start(todss/behaviours/dier/muis) ^wait(todss/behaviours/dier/muis)wil je er nog 1 zien?
+        u2:(ja) ^sameProposal
+        u2:(nee) oke.^activate(blijf)^topicTag(greetings,blijf)
+    u1:(koe) kijk, ik ben een koe \pau=1000\     ^start(todss/behaviours/dier/koe) ^wait(todss/behaviours/dier/koe)wil je er nog 1 zien?
+        u2:(ja) ^sameProposal
+        u2:(nee) oke.^activate(blijf)^topicTag(greetings,blijf)
+    u1:(kat) kijk, ik ben een kat \pau=1000\     ^start(todss/behaviours/dier/kat) ^wait(todss/behaviours/dier/kat)wil je er nog 1 zien?
+        u2:(ja) ^sameProposal
+        u2:(nee) oke.^activate(blijf)^topicTag(greetings,blijf)
+    u1:(hond) kijk, ik ben een hond \pau=1000\     ^start(todss/behaviours/dier/hond) ^wait(todss/behaviours/dier/hond)wil je er nog 1 zien?
+        u2:(ja) ^sameProposal
+        u2:(nee) oke. ^activate(blijf)^topicTag(greetings,blijf)
+    u1:(!hond !kat !koe !muis !aap !gorilla !olifant kan je een * na doen) die kan ik helaas niet. probeer een ander dier. ^gotoReactivate(kiesdier)
+
+#u1:(allemaal) kijk, ik ben een olifant \pau=1000\  ^start(todss/behaviours/dier/olifant) ^wait(todss/behaviours/dier/olifant) kijk, ik ben een gorilla \pau=1000\  ^start(todss/behaviours/dier/gorilla) ^wait(todss/behaviours/dier/gorilla)kijk, ik ben een muis \pau=1000\     ^start(todss/behaviours/dier/muis) ^wait(todss/behaviours/dier/muis)kijk, ik ben een koe \pau=1000\     ^start(todss/behaviours/dier/koe) ^wait(todss/behaviours/dier/koe)kijk, ik ben een kat \pau=1000\     ^start(todss/behaviours/dier/kat) ^wait(todss/behaviours/dier/kat)kijk, ik ben een hond \pau=1000\     ^start(todss/behaviours/dier/hond) ^wait(todss/behaviours/dier/hond)

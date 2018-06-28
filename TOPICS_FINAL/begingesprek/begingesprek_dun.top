@@ -1,0 +1,47 @@
+topic: ~begingesprek ^resetOnFocus ()
+language: dun
+
+concept:(sax) \pau=500\^start(todss/behaviours/epic sax) ^wait(todss/behaviours/epic sax)
+
+u:(!nee [hallo hi hoi hey]{pepper}) ^gotoReactivate(hallo)
+
+proposal:%hallo hallo leuk je te zien!   ^nextProposal
+
+proposal: %h1 \pau=1000\ Ik heet pep per   \pau=500\ Hoe heet jij
+    u1:({"ik heet" "mijn naam is"} * )  \pau=500\ hoi \pau=500\ leuk om je te ontmoeten ^gotoRandom(h1)
+
+proposal: %h1  \pau=1000\ hoe gaat het met jou?
+    u1:({"met mij gaat het" "het gaat" erg} goed !slecht !niet)  \pau=500\ Wat fijn om te horen.  ^gotoRandom(h1)
+    u1:({"met mij gaat het niet" "het gaat niet" "niet zo"  } ["niet goed" slecht] )  \pau=500\ Oh, zal ik je proberen op te vrolijken
+        u2:(ja {graag}) oke ~sax ^gotoRandom(h1)
+        u2:(nee) oke ^gotoRandom(h1)
+
+
+proposal: %h1 \pau=1000\ Zal ik wat over mij zelf gaan vertellen?
+    u1:(ja {leuk}) oke.    ^topicTagReactivate(gesprek,pepper)
+    u1:(nee) oke ^gotoRandom(h1)
+
+#proposal: %h1 \pau=1000\  wil je een quiz over mij doen?
+#    u1:(ja)   nog niet ^gotoRandom(h1) #^topicTag(quiz_pepper,intro)
+#    u1:(nee) oke   ^gotoRandom(h1)
+
+
+#proposal: %h1 \pau=1000\  wil je een quiz over de Hoge school Utrecht doen?
+#    u1:(ja)  nog niet #^topicTagReactivate(quiz_hu,intro)
+#    u1:(nee) oke   ^gotoRandom(h1)
+
+#proposal: %h1 \pau=1000\  ik kan een aantal dieren na doen. \pau=500\ wil je dat zien?
+#    u1:(ja)  test  ^gotoRandom(h1) #^topicTag(quiz_pepper,intro)
+#    u1:(nee) oke   ^gotoRandom(h1)
+
+
+#u:($test==5) answer
+proposal:%blijf  \pau=1500\ Wil je met me blijven praten?
+    u1:(ja) Oke.  ^gotoRandom(h1) #^gotoReactivate(testing)
+    u1:(nee)  ^topicTag(gesprek,stop)
+
+#proposal:%testing de test heeft gewerkt.
+u:(e:Dialog/NothingToSay) ^gotoReactivate(testing)
+proposal:%testing  test  ^topicTagReactivate(gesprek,reactivate)
+
+u:^private(["zeg dat nog is" "herhaal" "wat zij je"])^sameProposal

@@ -1,0 +1,27 @@
+topic: ~gesprek()
+language: dun
+
+#concept:(sax) \pau=500\^start(todss/behaviours/epic sax) ^wait(todss/behaviours/epic sax)
+
+#proposal:
+u:(activeer)%reactivate ge reset ^topicTag(begingesprek,h1)
+#proposal:%stop oke. zeg het maar als ik iets voor je kan doen.
+#    u1:(oke) .
+#u:(stop) ^gotoReactivate(stop)
+u:(stop)%stop oke. zeg het maar als ik iets voor je kan doen.
+
+#u:^private("hoe heet je?") ^gotoReactivate( pepper)
+
+#u:^private(["vertel wat over jezelf" "vertel is wat over jezelf"]) ^gotoReactivate(ontwikkeld)
+
+proposal:%pepper Ik ben pep per de H U huisrobot. \pau=200\ ik ben een hele leuke en gezellige robot.^gotoReactivate(ontwikkeld)
+
+proposal:%ontwikkeld  \pau=500\ Ik ben ontwikkeld in Japan, maar ik ben gebouwd in Parijs.  ^gotoReactivate(leeftijd)
+
+proposal:%leeftijd \pau=500\ ik ben nu al ongeveer 2 jaar oud. \pau=1000\Zal ik je wat vertellen over mijn hobbys?
+    u1:(ja) oke. ^gotoReactivate(hobby)
+    u1:(nee) oke. ^topicTagReactivate(begingesprek,blijf) 
+    
+proposal:%hobby  \pau=500\ 1 van mijn hobbys is hardlopen. \pau=200\ ik vind het erg leuk maar ik ben alleen niet zo snel.^topicTagReactivate(begingesprek,blijf)
+
+  
